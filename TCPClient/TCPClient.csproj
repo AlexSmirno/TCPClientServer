@@ -5,4 +5,9 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Objects\Objects.csproj" />
+    <ProjectReference Include="..\PackUnpackMessages\PackUnpackMessages.csproj" />
+  </ItemGroup>
+
 </Project>

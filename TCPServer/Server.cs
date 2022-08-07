@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading.Tasks;
-using TCPServer.Messages;
 using TCPServer.Objects;
 
 namespace TCPServer
@@ -19,13 +16,14 @@ namespace TCPServer
         private Socket serverSocket;
         private Task[] listeners;
         private int countListener = 0;
+        private readonly Controller MyController;
 
-        public static Dictionary<int, Queue<Message>> quequesMessages = new Dictionary<int, Queue<Message>>();
-        public static List<User> activeUsers = new List<User>();
+        private static Dictionary<int, Queue<Message>> quequesMessages = new Dictionary<int, Queue<Message>>();
+        private static List<User> activeUsers = new List<User>();
 
         public Server()
         {
-
+            MyController = new Controller();
         }
 
         #region configuration
@@ -178,11 +176,8 @@ namespace TCPServer
 
                     Console.WriteLine();
                     Errors response = Errors.NoError;
-                    DataProcessing dataProcessing = new DataProcessing(number);
-                    await dataProcessing.DataProcessingChoise(route, mesType, data);
 
-                    PackingMessages packinMessages = new PackingMessages();
-                    buffer = await packinMessages.packMessage(number, response);
+                    buffer = MyController.ProcessMessage(mesType, route, data, response);
 
                     handler.Send(buffer);
                 }

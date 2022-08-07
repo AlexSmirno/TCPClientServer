@@ -1,0 +1,5 @@
+D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net6.0\PackUnpackMessages.csproj.AssemblyReference.cache
+D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net6.0\PackUnpackMessages.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net6.0\PackUnpackMessages.AssemblyInfoInputs.cache
+D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net6.0\PackUnpackMessages.AssemblyInfo.cs
+D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net6.0\PackUnpackMessages.csproj.CoreCompileInputs.cache

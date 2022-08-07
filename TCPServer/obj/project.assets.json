@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Objects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Objects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Objects.dll": {}
+        }
+      },
+      "PackUnpackMessages/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Objects": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PackUnpackMessages.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PackUnpackMessages.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Objects/1.0.0": {
+      "type": "project",
+      "path": "../Objects/Objects.csproj",
+      "msbuildProject": "../Objects/Objects.csproj"
+    },
+    "PackUnpackMessages/1.0.0": {
+      "type": "project",
+      "path": "../PackUnpackMessages/PackUnpackMessages.csproj",
+      "msbuildProject": "../PackUnpackMessages/PackUnpackMessages.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Objects >= 1.0.0",
+      "PackUnpackMessages >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\79035\\.nuget\\packages\\": {},
@@ -38,7 +76,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Projects\\В процессе\\TCPClientServer\\Objects\\Objects.csproj": {
+              "projectPath": "D:\\Projects\\В процессе\\TCPClientServer\\Objects\\Objects.csproj"
+            },
+            "D:\\Projects\\В процессе\\TCPClientServer\\PackUnpackMessages\\PackUnpackMessages.csproj": {
+              "projectPath": "D:\\Projects\\В процессе\\TCPClientServer\\PackUnpackMessages\\PackUnpackMessages.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
