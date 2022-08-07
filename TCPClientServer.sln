@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPServer", "TCPServer\TCPServer.csproj", "{422BB0CF-95FD-450B-ADA9-75C538860ABC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TCPServer", "TCPServer\TCPServer.csproj", "{422BB0CF-95FD-450B-ADA9-75C538860ABC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPClient", "TCPClient\TCPClient.csproj", "{8C9B67F5-859E-4561-9782-8DEF14D25F01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TCPClient", "TCPClient\TCPClient.csproj", "{8C9B67F5-859E-4561-9782-8DEF14D25F01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackUnpackMessages", "PackUnpackMessages\PackUnpackMessages.csproj", "{06EB1C35-844D-447D-9C36-3E7B13788712}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8C9B67F5-859E-4561-9782-8DEF14D25F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C9B67F5-859E-4561-9782-8DEF14D25F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C9B67F5-859E-4561-9782-8DEF14D25F01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06EB1C35-844D-447D-9C36-3E7B13788712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06EB1C35-844D-447D-9C36-3E7B13788712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06EB1C35-844D-447D-9C36-3E7B13788712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06EB1C35-844D-447D-9C36-3E7B13788712}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
