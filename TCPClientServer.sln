@@ -12,8 +12,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TCPClient", "TCPClient\TCPC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PackUnpackMessages", "PackUnpackMessages\PackUnpackMessages.csproj", "{06EB1C35-844D-447D-9C36-3E7B13788712}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Objects", "Objects\Objects.csproj", "{EE2CEC72-1CD3-42F8-8E70-81B5424E661C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,10 +30,6 @@ Global
 		{06EB1C35-844D-447D-9C36-3E7B13788712}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06EB1C35-844D-447D-9C36-3E7B13788712}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06EB1C35-844D-447D-9C36-3E7B13788712}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE2CEC72-1CD3-42F8-8E70-81B5424E661C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE2CEC72-1CD3-42F8-8E70-81B5424E661C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE2CEC72-1CD3-42F8-8E70-81B5424E661C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE2CEC72-1CD3-42F8-8E70-81B5424E661C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

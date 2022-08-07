@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
-      "Objects/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Objects.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Objects.dll": {}
-        }
-      }
-    }
+    "net6.0": {}
   },
-  "libraries": {
-    "Objects/1.0.0": {
-      "type": "project",
-      "path": "../Objects/Objects.csproj",
-      "msbuildProject": "../Objects/Objects.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "Objects >= 1.0.0"
-    ]
+    "net6.0": []
   },
   "packageFolders": {
     "C:\\Users\\79035\\.nuget\\packages\\": {},
@@ -57,11 +38,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "D:\\Projects\\В процессе\\TCPClientServer\\Objects\\Objects.csproj": {
-              "projectPath": "D:\\Projects\\В процессе\\TCPClientServer\\Objects\\Objects.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Objects\Objects.csproj" />
     <ProjectReference Include="..\PackUnpackMessages\PackUnpackMessages.csproj" />
   </ItemGroup>
 

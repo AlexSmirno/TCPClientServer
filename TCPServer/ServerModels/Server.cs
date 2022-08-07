@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
-using TCPServer.Objects;
+using PackUnpackMessages.Enums;
 
-namespace TCPServer
+namespace TCPServer.ServerModels
 {
     public class Server
     {
@@ -175,9 +175,8 @@ namespace TCPServer
                     }*/
 
                     Console.WriteLine();
-                    Errors response = Errors.NoError;
 
-                    buffer = MyController.ProcessMessage(mesType, route, data, response);
+                    buffer = MyController.ProcessMessage(mesType, route, data);
 
                     handler.Send(buffer);
                 }

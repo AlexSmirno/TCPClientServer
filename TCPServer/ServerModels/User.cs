@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TCPServer.Objects;
 
-namespace TCPServer
+namespace TCPServer.ServerModels
 {
     public class User
     {

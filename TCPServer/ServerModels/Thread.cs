@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TCPServer
+namespace TCPServer.ServerModels
 {
     public class Thread
     {

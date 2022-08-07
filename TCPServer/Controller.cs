@@ -1,5 +1,5 @@
 ﻿using PackUnpackMessages;
-using TCPServer.Messages;
+using PackUnpackMessages.Enums;
 
 namespace TCPServer
 {
@@ -12,7 +12,7 @@ namespace TCPServer
             packMessage = new PackingMessages();
         }
 
-        public byte[] ProcessMessage(int type, byte[] route, byte[] recivedMessage, Errors error)
+        public byte[] ProcessMessage(int type, byte[] route, byte[] recivedMessage)
         {
             byte[] mess = new byte[1];
             Message message = new Message()

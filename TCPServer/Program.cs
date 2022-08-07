@@ -1,4 +1,6 @@
 ﻿using System;
+using TCPServer.ServerModels;
+
 namespace TCPServer
 {
     class Program
