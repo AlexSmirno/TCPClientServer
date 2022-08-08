@@ -1,4 +1,4 @@
-﻿namespace TCPServer
+﻿namespace PackUnpackMessages
 {
     public class Message
     {

@@ -4,8 +4,9 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using PackUnpackMessages.Enums;
+using TCPServer.ServerModels;
 
-namespace TCPServer.ServerModels
+namespace TCPServer
 {
     public class Server
     {
@@ -18,7 +19,7 @@ namespace TCPServer.ServerModels
         private int countListener = 0;
         private readonly Controller MyController;
 
-        private static Dictionary<int, Queue<Message>> quequesMessages = new Dictionary<int, Queue<Message>>();
+        private static Dictionary<int, Queue<PackUnpackMessages.Message>> quequesMessages = new Dictionary<int, Queue<PackUnpackMessages.Message>>();
         private static List<User> activeUsers = new List<User>();
 
         public Server()
@@ -74,7 +75,7 @@ namespace TCPServer.ServerModels
                         int a = countListener;
                         listeners[countListener] = new Task(() => StartNewSocket(a, handler));
 
-                        quequesMessages.Add(a, new Queue<Message>());
+                        quequesMessages.Add(a, new Queue<PackUnpackMessages.Message>());
 
                         listeners[countListener].Start();
 
@@ -176,7 +177,7 @@ namespace TCPServer.ServerModels
 
                     Console.WriteLine();
 
-                    buffer = MyController.ProcessMessage(mesType, route, data);
+                    buffer = await MyController.ProcessMessage(mesType, route, data);
 
                     handler.Send(buffer);
                 }
