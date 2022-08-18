@@ -7,7 +7,8 @@
         SendFiles = 2,
         GetFilesList = 3,
         GetFiles = 4,
-        Error = 5,
-        KeepConnection = 6
+        GetChatHistory = 5,
+        Error = 6,
+        KeepConnection = 7
     }
 }

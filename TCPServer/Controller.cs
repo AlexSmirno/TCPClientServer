@@ -1,62 +1,165 @@
-﻿using PackUnpackMessages;
-using PackUnpackMessages.Enums;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
+using System.Threading.Tasks;
 using System.Linq;
 using System;
-using System.Threading.Tasks;
+
+using PackUnpackMessages.Enums;
+using PackUnpackMessages;
+using TCPServer.Data;
 
 namespace TCPServer
 {
     public class Controller
     {
         private PackingMessages packMessage;
+        private const int serverId = 100;
+        private int Thread;
 
-        public Controller()
+        public Controller(int thread)
         {
             packMessage = new PackingMessages();
+            Thread = thread;
         }
 
-        public async Task<byte[]> ProcessMessage(int type, byte[] route, byte[] recivedMessage)
+        public async Task ProcessMessage(byte[] message)
+        {
+            Message newMessage = new Message(message);
+
+            await Checking(newMessage);
+        }
+
+        private async Task Checking(Message message)
         {
             Errors error = new Errors();
-            byte[] mess;
 
-            if (!CheckHash(recivedMessage))
+            if (message.MessageType != (int)MessageTypes.Error)
             {
-                error = Errors.WrongHash;
-                return await packMessage.packErrorMessage(route[1], error);
+                if (!CheckHash(message.Data))
+                {
+                    error = Errors.WrongHash;
+                }
+
+                if (ServerContext.ActiveUsers.Where(user => user.Id == message.To).Count() == 0)
+                {
+                    error = Errors.WrongHash;
+                }
+
+                if (error > 0)
+                {
+                    await AddMessageToQueue(await packMessage.packErrorMessage(message.From, error), message.From);
+                }
             }
 
-            Message message = new Message()
-            {
-                MessageType = type,
-                From = route[0],
-                To = route[1],
-                Data = recivedMessage
-            };
+            await Routing(message);
+        }
 
-            if (error > 0)
+        private async Task Routing(Message message)
+        {
+            MessageTypes messageType = (MessageTypes)message.MessageType;
+            switch (messageType)
             {
-                mess = await packMessage.packErrorMessage(message.To, error);
+                case MessageTypes.Undefinded:
+                    break;
+                case MessageTypes.SendText:
+                    await SaveMessage(message);
+                    await AddMessageToQueue(await packMessage.packUsualMessage(message), message.To);
+                    break;
+                case MessageTypes.SendFiles:
+                    await SaveMessage(message);
+                    break;
+                case MessageTypes.GetFilesList:
+                    break;
+                case MessageTypes.GetFiles:
+                    break;
+                case MessageTypes.GetChatHistory:
+                    await AddMessageToQueue(await packMessage.packUsualMessage(await TakeData(message)), message.From);
+                    break;
+                case MessageTypes.Error:
+                    break;
+                case MessageTypes.KeepConnection:
+                    break;
+                default:
+                    break;
             }
+        }
 
-            mess = await packMessage.packUsualMessage(message);
-            return mess;
+        private async Task SaveMessage(Message message)
+        {
+            SaveService saveService = new SaveService();
+            if (message.MessageType == (int)MessageTypes.SendText)
+            {
+                await saveService.SaveText(message);
+            }
+            else if (message.MessageType == (int)MessageTypes.SendFiles)
+            {
+                await saveService.SaveText(message);
+            }
         }
         
-        public async void RedirectionFile()
+        private async Task<Message> TakeData(Message message)
+        {
+            TakeService takeService = new TakeService();
+
+            byte[] data = default;
+            switch ((MessageTypes)message.MessageType)
+            {
+                case MessageTypes.GetFilesList:
+                    data = await takeService.TakeFileList();
+                    break;
+                case MessageTypes.GetFiles:
+                    data = await takeService.TakeFile(message.Data);
+                    break;
+                case MessageTypes.GetChatHistory:
+                    data = await takeService.TakeChatHistory(message.Data);
+                    break;
+                default:
+                    break;
+            }
+
+            Message rewriteMessage = new Message()
+            {
+                From = message.To,
+                To = message.From,
+                MessageType = message.MessageType,
+                Data = data
+            };
+
+            return rewriteMessage;
+        }
+
+        public async Task<Errors> SaveFile()
+        {
+            Errors error = Errors.NoError;
+            return error;
+        }
+
+        //TODO: smth with big files
+        public async void RedirectionMessage(Message mes)
+        {
+            await AddMessageToQueue(mes.GetMessage(), mes.To);
+        }
+
+        public async void PollingMessage(int to)
+        {
+            Message polling = new Message
+            {
+                From = serverId,
+                To = (byte)to,
+                MessageType = (int)MessageTypes.KeepConnection,
+                Data = new byte[0]
+            };
+            await AddMessageToQueue(polling.GetMessage(), to);
+        }
+
+
+        private async Task AddUser()
         {
 
         }
 
-        public async void SaveFile()
+        private async Task AddMessageToQueue(byte[] message, int Id)
         {
-
-        }
-
-        public async void RedirectionText(Message mes)
-        {
-
+            ServerContext.QueuesMessages[ServerContext.ActiveUsers.Where(user => user.Id == Id).FirstOrDefault().Thread].Enqueue(message);
         }
 
         private bool CheckHash(byte[] message)

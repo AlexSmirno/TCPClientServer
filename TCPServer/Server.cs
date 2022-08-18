@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using PackUnpackMessages.Enums;
-using TCPServer.ServerModels;
+using TCPServer.Data;
 
 namespace TCPServer
 {
@@ -17,14 +18,11 @@ namespace TCPServer
         private Socket serverSocket;
         private Task[] listeners;
         private int countListener = 0;
-        private readonly Controller MyController;
 
-        private static Dictionary<int, Queue<PackUnpackMessages.Message>> quequesMessages = new Dictionary<int, Queue<PackUnpackMessages.Message>>();
-        private static List<User> activeUsers = new List<User>();
 
         public Server()
         {
-            MyController = new Controller();
+
         }
 
         #region configuration
@@ -69,13 +67,14 @@ namespace TCPServer
             {
                 while (true)
                 {
+                    int listenerID = 0;
                     if (countListener < amountListener)
                     {
                         Socket handler = serverSocket.Accept();
-                        int a = countListener;
-                        listeners[countListener] = new Task(() => StartNewSocket(a, handler));
+                        int id = ++listenerID;
+                        listeners[countListener] = new Task(() => StartNewSocket(id, handler));
 
-                        quequesMessages.Add(a, new Queue<PackUnpackMessages.Message>());
+                        ServerContext.QueuesMessages.Add(id, new Queue<byte[]>());
 
                         listeners[countListener].Start();
 
@@ -100,76 +99,49 @@ namespace TCPServer
         #endregion
 
         //Прослушивания входящих запросов
-        private async Task StartNewSocket(int number, Socket handler)
+        private async Task StartNewSocket(int threadNumber, Socket handler)
         {
             try
             {
                 while (true)
                 {
-                    byte[] smallBuff = new byte[50]; //50 байт
-
                     //Get route + type
-                    byte[] buffer = new byte[ByteConst.routeBytes + ByteConst.messageTypeBytes + ByteConst.sizeBytes];
+                    byte[] buffer = new byte[ByteConst.sizeBytes];
                     int received = handler.Receive(buffer);
 
-                    int offset = 0;
+                    byte[] smallBuff = new byte[ByteConst.sizeBytes];
                     Array.Copy(buffer,
-                                offset,
-                                smallBuff,
-                                0,
-                                ByteConst.routeBytes); //Копирование маршрута в буффер
-                    byte[] route = smallBuff;
-                    offset += ByteConst.routeBytes;
-
-                    smallBuff = new byte[ByteConst.messageTypeBytes];
-                    Array.Copy(buffer,
-                               offset,
-                               smallBuff,
                                0,
-                               ByteConst.messageTypeBytes); //Копирование типа в буффер
-                    int mesType = BitConverter.ToInt32(smallBuff);
-                    offset += ByteConst.messageTypeBytes;
-
-                    smallBuff = new byte[ByteConst.sizeBytes];
-                    Array.Copy(buffer,
-                               offset,
                                smallBuff,
                                0,
                                ByteConst.sizeBytes); //Копирование длины сообщения в буффер
-                    offset += ByteConst.sizeBytes;
+                    int offset = ByteConst.sizeBytes;
 
                     long size = BitConverter.ToInt64(smallBuff);
 
-                    int bytes = 0;
-
                     byte[] data;
-                    if (size > 0)
-                    {
-                        byte[] buff;
-                        data = new byte[size];
-                        while (bytes < size)
-                        {
-                            if (bytes >= ByteConst.bufferSize)
-                                buff = new byte[ByteConst.bufferSize];
-                            else
-                                buff = new byte[size % ByteConst.bufferSize];
 
-                            received = handler.Receive(buff);
-                            bytes += received;
-                            Array.Copy(buff,
-                                        0,
-                                        data,
-                                        0,
-                                        bytes); //Копирование длины сообщения в буффер
-                        }
-                    }
-                    else
+                    byte[] buff;
+                    data = new byte[size];
+                    long bytes = 0;
+                    while (bytes < size)
                     {
-                        data = new byte[size];
+                        if (bytes >= ByteConst.bufferSize)
+                            buff = new byte[ByteConst.bufferSize];
+                        else
+                            buff = new byte[size % ByteConst.bufferSize];
+
+                        received = handler.Receive(buff);
+                        bytes += received;
+                        Array.Copy(buff,
+                                    0,
+                                    data,
+                                    offset,
+                                    bytes); //Копирование длины сообщения в буффер
+
+                        offset += received;
                     }
-                    Console.Write("Сокет #" + number + " получает сообщение от клиента по маршруту "
-                                    + route + " типа " + mesType + " длины " + size
-                                    + " байт. ");
+                    Console.Write("Сокет #" + threadNumber + " получает сообщение от клиента");
                     /*if (mesType == (int)MessageTypes.SendText)
                     {
                         Console.Write("Сообщение: " + encoding.GetString(data, ByteConst.hashBytes, data.Length - ByteConst.hashBytes));
@@ -177,9 +149,15 @@ namespace TCPServer
 
                     Console.WriteLine();
 
-                    buffer = await MyController.ProcessMessage(mesType, route, data);
+                    Controller MyController = new Controller(threadNumber);
+                    await MyController.ProcessMessage(data);
 
-                    handler.Send(buffer);
+                    if (ServerContext.QueuesMessages[threadNumber].Count == 0)
+                    {
+                        MyController.PollingMessage(ServerContext.ActiveUsers.Where(user => user.Thread == threadNumber).FirstOrDefault().Id);
+                    }
+
+                    handler.Send(ServerContext.QueuesMessages[threadNumber].Dequeue());
                 }
             }
             catch (Exception error)
@@ -188,7 +166,7 @@ namespace TCPServer
                 handler.Close();
                 handler.Dispose();
                 countListener--;
-                quequesMessages.Remove(number);
+                ServerContext.QueuesMessages.Remove(threadNumber);
                 Console.WriteLine("Чел ушел");
                 Console.WriteLine(error.ToString());
             }

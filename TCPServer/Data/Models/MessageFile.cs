@@ -3,11 +3,11 @@ using System.IO;
 using System.Text;
 using System.Linq;
 
-namespace TCPServer.Messages
+namespace TCPServer.Data.Models
 {
-    internal class MessageFile : MessageBase
+    internal class MessageFile
     {
-        private Encoding encoding;
+        /*private Encoding encoding;
 
         //Константы показывающие кол-во байт выделенных под дополнительную информацию в сообщении
         private const int filenameBytes = 50;
@@ -24,7 +24,7 @@ namespace TCPServer.Messages
         private long Size; //говорят, что максимум 2 гигабайта :)
         private byte[] Hash { get; set; }
 
-        public byte[] Data{ get; set; } //Финальный массив для отправки. Возможно сделать массив массивов для разбиения больших файлов на пакеты
+        public byte[] Data { get; set; } //Финальный массив для отправки. Возможно сделать массив массивов для разбиения больших файлов на пакеты
 
         //Для отправки
         public MessageFile(MessageTypes messageType, string route)
@@ -106,6 +106,6 @@ namespace TCPServer.Messages
 
             File.WriteAllBytes("C:\\Users\\79035\\OneDrive\\Рабочий стол\\" + filename, messageBytes);
             return equalHash(hash, GetHashMD5(messageBytes));
-        }
+        }*/
     }
 }
