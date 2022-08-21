@@ -1,8 +1,10 @@
-﻿namespace TCPServer.Data.ServerModels
+﻿using TCPServer.Data.Models;
+
+namespace TCPServer.Data.ServerModels
 {
     public class Thread
     {
         public int Id { get; set; }
-        public int Client { get; set; }
+        public User User { get; set; }
     }
 }

@@ -3,3 +3,10 @@ D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net
 D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net6.0\PackUnpackMessages.AssemblyInfoInputs.cache
 D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net6.0\PackUnpackMessages.AssemblyInfo.cs
 D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net6.0\PackUnpackMessages.csproj.CoreCompileInputs.cache
+D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\bin\Debug\net6.0\PackUnpackMessages.deps.json
+D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\bin\Debug\net6.0\PackUnpackMessages.dll
+D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\bin\Debug\net6.0\PackUnpackMessages.pdb
+D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net6.0\PackUnpackMessages.dll
+D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net6.0\refint\PackUnpackMessages.dll
+D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net6.0\PackUnpackMessages.pdb
+D:\Projects\В процессе\TCPClientServer\PackUnpackMessages\obj\Debug\net6.0\ref\PackUnpackMessages.dll

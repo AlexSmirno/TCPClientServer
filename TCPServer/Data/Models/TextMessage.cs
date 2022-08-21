@@ -3,8 +3,8 @@
     public class TextMessage
     {
         public int Id { get; set; }
-        public byte UserId { get; set; }
-        public int Channel { get; set; }
+        public byte Sender { get; set; }
+        public byte Reciver { get; set; }
         public byte[] Text { get; set; }
     }
 }

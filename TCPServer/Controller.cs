@@ -25,6 +25,8 @@ namespace TCPServer
         {
             Message newMessage = new Message(message);
 
+            AddUser(newMessage.From);
+
             await Checking(newMessage);
         }
 
@@ -34,14 +36,15 @@ namespace TCPServer
 
             if (message.MessageType != (int)MessageTypes.Error)
             {
-                if (!CheckHash(message.Data))
+                /*if (!CheckHash(message.Data))
                 {
                     error = Errors.WrongHash;
-                }
+                }*/
 
-                if (ServerContext.ActiveUsers.Where(user => user.Id == message.To).Count() == 0)
+                if (message.To != serverId && ServerContext.ActiveThreads.Where(thread => 
+                thread.User.Id == message.To).Count() == 0)
                 {
-                    error = Errors.WrongHash;
+                    error = Errors.NotFoundClient;
                 }
 
                 if (error > 0)
@@ -56,6 +59,10 @@ namespace TCPServer
         private async Task Routing(Message message)
         {
             MessageTypes messageType = (MessageTypes)message.MessageType;
+
+            Logger.Logger logger = new Logger.Logger(this.GetType().FullName);
+            logger.Report("Route message with type = " + messageType);
+
             switch (messageType)
             {
                 case MessageTypes.Undefinded:
@@ -92,7 +99,7 @@ namespace TCPServer
             }
             else if (message.MessageType == (int)MessageTypes.SendFiles)
             {
-                await saveService.SaveText(message);
+                await saveService.SaveFile();
             }
         }
         
@@ -148,18 +155,17 @@ namespace TCPServer
                 MessageType = (int)MessageTypes.KeepConnection,
                 Data = new byte[0]
             };
-            await AddMessageToQueue(polling.GetMessage(), to);
+            await AddMessageToQueue(await packMessage.packUsualMessage(polling), polling.To);
         }
 
-
-        private async Task AddUser()
+        private async Task AddUser(int id)
         {
-
+            ServerContext.ActiveThreads.Find(thread => thread.Id == Thread).User = new Data.Models.User() { Id = id, Username = id.ToString() };
         }
 
         private async Task AddMessageToQueue(byte[] message, int Id)
         {
-            ServerContext.QueuesMessages[ServerContext.ActiveUsers.Where(user => user.Id == Id).FirstOrDefault().Thread].Enqueue(message);
+            ServerContext.QueuesMessages[ServerContext.ActiveThreads.Where(thread => thread.User.Id == Id).FirstOrDefault().Id].Enqueue(message);
         }
 
         private bool CheckHash(byte[] message)

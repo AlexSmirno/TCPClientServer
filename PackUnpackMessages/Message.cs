@@ -22,7 +22,7 @@ namespace PackUnpackMessages
 
         public byte[] GetMessage()
         {
-            byte[] message = new byte[ByteConst.routeBytes + ByteConst.messageTypeBytes + ByteConst.sizeBytes + Data.Length];
+            byte[] message = new byte[ByteConst.routeBytes + ByteConst.messageTypeBytes + Data.Length];
 
             int offset = 0;
             byte[] route = new byte[] { From, To };
@@ -40,13 +40,6 @@ namespace PackUnpackMessages
                         ByteConst.messageTypeBytes); //Копирование типа в буффер
             offset += ByteConst.messageTypeBytes;
 
-            Array.Copy(BitConverter.GetBytes((long)Data.Length),
-                        0,
-                        message,
-                        offset,
-                        ByteConst.sizeBytes); //Копирование длину сообщения в буффер
-            offset += ByteConst.sizeBytes;
-
             Array.Copy(Data,
                         0,
                         message,
@@ -62,6 +55,7 @@ namespace PackUnpackMessages
             From = message[0];
             To = message[1];
             byte[] buffer = new byte[ByteConst.messageTypeBytes];
+
             Array.Copy(message,
                         offset,
                         buffer,
@@ -70,11 +64,12 @@ namespace PackUnpackMessages
             offset += ByteConst.messageTypeBytes;
             MessageType = BitConverter.ToInt32(buffer);
 
+            Data = new byte[message.Length - ByteConst.routeBytes - ByteConst.messageTypeBytes];
             Array.Copy(message,
                         offset,
                         Data,
                         0,
-                        message.Length - ByteConst.routeBytes - ByteConst.messageTypeBytes); //Копирование сообщение в буффер
+                        Data.Length); //Копирование сообщение в буффер
         }
     }
 }

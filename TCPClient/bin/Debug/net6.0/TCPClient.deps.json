@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "TCPClient/1.0.0": {
+        "dependencies": {
+          "PackUnpackMessages": "1.0.0"
+        },
         "runtime": {
           "TCPClient.dll": {}
+        }
+      },
+      "PackUnpackMessages/1.0.0": {
+        "runtime": {
+          "PackUnpackMessages.dll": {}
         }
       }
     }
   },
   "libraries": {
     "TCPClient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PackUnpackMessages/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -18,7 +18,8 @@ namespace TCPServer.Data
                 Context.TextMessages.Add(new Models.TextMessage()
                 {
                     Id = Context.TextMessages.Count + 1,
-                    UserId = message.From,
+                    Sender = message.From,
+                    Reciver = message.To,
                     Text = message.Data
                 });
                 return Errors.NoError;

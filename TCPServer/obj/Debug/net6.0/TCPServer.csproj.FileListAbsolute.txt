@@ -13,3 +13,6 @@ D:\Projects\В процессе\TCPClientServer\TCPServer\obj\Debug\net6.0\refin
 D:\Projects\В процессе\TCPClientServer\TCPServer\obj\Debug\net6.0\TCPServer.pdb
 D:\Projects\В процессе\TCPClientServer\TCPServer\obj\Debug\net6.0\TCPServer.genruntimeconfig.cache
 D:\Projects\В процессе\TCPClientServer\TCPServer\obj\Debug\net6.0\ref\TCPServer.dll
+D:\Projects\В процессе\TCPClientServer\TCPServer\bin\Debug\net6.0\PackUnpackMessages.dll
+D:\Projects\В процессе\TCPClientServer\TCPServer\bin\Debug\net6.0\PackUnpackMessages.pdb
+D:\Projects\В процессе\TCPClientServer\TCPServer\obj\Debug\net6.0\TCPServer.csproj.CopyComplete

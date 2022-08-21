@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 using PackUnpackMessages.Enums;
 using TCPServer.Data;
+using System.Diagnostics;
 
 namespace TCPServer
 {
@@ -19,6 +20,7 @@ namespace TCPServer
         private Task[] listeners;
         private int countListener = 0;
 
+        private Logger.Logger logger = new Logger.Logger();
 
         public Server()
         {
@@ -51,7 +53,8 @@ namespace TCPServer
             serverSocket.Bind(endPoint);
             serverSocket.Listen(amountListener);
 
-            Console.WriteLine("Server is running...");
+            Console.WriteLine("Server have been started");
+            logger.InfoReport("Server have been started");
         }
 
         public void startListeners()
@@ -63,11 +66,11 @@ namespace TCPServer
 
             listeners = new Task[amountListener];
 
+            int listenerID = 0;
             try
             {
                 while (true)
                 {
-                    int listenerID = 0;
                     if (countListener < amountListener)
                     {
                         Socket handler = serverSocket.Accept();
@@ -87,7 +90,7 @@ namespace TCPServer
             catch (Exception ex)
             {
                 Console.WriteLine("Server : startListeners : str112");
-                Console.WriteLine(ex.ToString());
+                logger.ErrorReport(ex.Message);
             }
 
 
@@ -99,8 +102,12 @@ namespace TCPServer
         #endregion
 
         //Прослушивания входящих запросов
+
         private async Task StartNewSocket(int threadNumber, Socket handler)
         {
+            ServerContext.ActiveThreads.Add(new Data.ServerModels.Thread() { Id = threadNumber });
+            logger.InfoReport("Start new Socket with id = " + threadNumber);
+
             try
             {
                 while (true)
@@ -109,15 +116,9 @@ namespace TCPServer
                     byte[] buffer = new byte[ByteConst.sizeBytes];
                     int received = handler.Receive(buffer);
 
-                    byte[] smallBuff = new byte[ByteConst.sizeBytes];
-                    Array.Copy(buffer,
-                               0,
-                               smallBuff,
-                               0,
-                               ByteConst.sizeBytes); //Копирование длины сообщения в буффер
                     int offset = ByteConst.sizeBytes;
 
-                    long size = BitConverter.ToInt64(smallBuff);
+                    long size = BitConverter.ToInt64(buffer);
 
                     byte[] data;
 
@@ -126,7 +127,7 @@ namespace TCPServer
                     long bytes = 0;
                     while (bytes < size)
                     {
-                        if (bytes >= ByteConst.bufferSize)
+                        if (size >= ByteConst.bufferSize)
                             buff = new byte[ByteConst.bufferSize];
                         else
                             buff = new byte[size % ByteConst.bufferSize];
@@ -136,8 +137,8 @@ namespace TCPServer
                         Array.Copy(buff,
                                     0,
                                     data,
-                                    offset,
-                                    bytes); //Копирование длины сообщения в буффер
+                                    0,
+                                    buff.Length); //Копирование длины сообщения в буффер
 
                         offset += received;
                     }
@@ -154,7 +155,7 @@ namespace TCPServer
 
                     if (ServerContext.QueuesMessages[threadNumber].Count == 0)
                     {
-                        MyController.PollingMessage(ServerContext.ActiveUsers.Where(user => user.Thread == threadNumber).FirstOrDefault().Id);
+                        MyController.PollingMessage(ServerContext.ActiveThreads.Where(thread => thread.Id == threadNumber).FirstOrDefault().User.Id);
                     }
 
                     handler.Send(ServerContext.QueuesMessages[threadNumber].Dequeue());
@@ -167,8 +168,9 @@ namespace TCPServer
                 handler.Dispose();
                 countListener--;
                 ServerContext.QueuesMessages.Remove(threadNumber);
+                ServerContext.ActiveThreads.Remove(ServerContext.ActiveThreads.Where(thread => thread.Id == threadNumber).FirstOrDefault());
                 Console.WriteLine("Чел ушел");
-                Console.WriteLine(error.ToString());
+                logger.ErrorReport(error.Message);
             }
         }
 

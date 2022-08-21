@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "TCPServer/1.0.0": {
+        "dependencies": {
+          "PackUnpackMessages": "1.0.0"
+        },
         "runtime": {
           "TCPServer.dll": {}
+        }
+      },
+      "PackUnpackMessages/1.0.0": {
+        "runtime": {
+          "PackUnpackMessages.dll": {}
         }
       }
     }
   },
   "libraries": {
     "TCPServer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PackUnpackMessages/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
