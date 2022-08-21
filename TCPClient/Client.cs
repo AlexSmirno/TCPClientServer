@@ -1,47 +1,96 @@
-﻿
-using PackUnpackMessages;
+﻿using PackUnpackMessages;
 using PackUnpackMessages.Enums;
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Sockets;
+
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Net.Sockets;
+using System.Threading;
+using System.Text;
+using System.Net;
+using System;
 
 namespace TCPClient
 {
-
     public class Client
     {
-        private Queue<Message> quequesMessages = new Queue<Message>();
-        private byte id;
+        private const int iteractionDelay = 500;
+
+        private byte Id;
         private Encoding encoding;
-
-        public Client(byte id)
+        private string serverIP;
+        private int serverHost;
+        private IPEndPoint endPoint;
+        private Socket socket;
+        public bool status { get; set; }
+        private Queue<Message> messagesQueue = new Queue<Message>();
+        public Client(byte Id)
         {
-            this.id = id;
-
+            this.Id = Id;
+            status = false;
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             encoding = Encoding.GetEncoding(1251);
         }
 
+        #region configuration
+        //В будущем будет хранится в файле конфигураций + заполняются пользовательским классом
+        //TODO validation
+        public void setServerIP(string IP)
+        {
+            serverIP = IP;
+        }
+        public void setServerHost(int host)
+        {
+            serverHost = host;
+        }
+        #endregion
+
+
         public async Task ClientStart()
         {
-            Console.WriteLine("Client " + id + " was created");
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("192.168.1.64"), 8080);
+            try
+            {
+                endPoint = new IPEndPoint(IPAddress.Parse(serverIP), serverHost);
 
-            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            socket.Connect(endPoint);
-            Console.WriteLine("Client " + id + " connected");
+                socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+                socket.Connect(endPoint);
+                status = true;
+                Console.WriteLine("Client " + Id + " connected");
+            }
+            catch (Exception)
+            {
+                socket.Dispose();
+                status = false;
+                Console.WriteLine("Client " + Id + " doesn't connected");
+            }
+        }
 
 
+        public async Task SendMessage(Message message)
+        {
+            while (true)
+            {
+                if (messagesQueue.Count > 0)
+                {
+                    await IteractionWithServer(messagesQueue.Dequeue().GetMessage());
+                }
+                else
+                {
+                    await IteractionWithServer(await PackInfoMessage());
+                }
+
+                await Task.Delay(iteractionDelay);
+            }
+        }
+
+        private async Task IteractionWithServer(byte[] message)
+        {
             try
             {
                 while (true)
                 {
-                    socket.Send(await packMessage(Errors.NoError));
+                    socket.Send(message);
 
                     byte[] responceBytes = new byte[ByteConst.sizeBytes];
                     int bytesRec = socket.Receive(responceBytes);
@@ -74,17 +123,21 @@ namespace TCPClient
                         offset += received;
                     }
                     Message recivedMessage = new Message(data);
-                    Console.WriteLine(id + ": " + recivedMessage.MessageType + encoding.GetString(recivedMessage.Data));
-
-                    Thread.Sleep(500);
+                    Console.WriteLine(Id + ": " + recivedMessage.MessageType + encoding.GetString(recivedMessage.Data));
                 }
             }
             catch (Exception ex)
             {
                 socket.Shutdown(SocketShutdown.Both);
                 socket.Close();
+                status = false;
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        public async Task<byte[]> PackInfoMessage()
+        {
+            return new byte[0];
         }
 
         public async Task addMessage(string message, int toID)
@@ -94,76 +147,16 @@ namespace TCPClient
             {
                 Message newMessage = new Message
                 {
-                    From = id,
+                    From = Id,
                     To = (byte)toID,
                     MessageType = (int)MessageTypes.SendText,
                     Data = encoding.GetBytes(message)
                 };
 
-                quequesMessages.Enqueue(newMessage);
+                messagesQueue.Enqueue(newMessage);
 
                 Thread.Sleep(5000);
             }
-        }
-
-        private async Task<byte[]> packMessage(Errors error)
-        {
-            byte[] data;
-
-            if (quequesMessages.Count > 0)
-            {
-                Message mesage = quequesMessages.Dequeue();
-                byte[] byteMessage = mesage.GetMessage();
-                data = new byte[ByteConst.sizeBytes + byteMessage.Length];
-
-                Array.Copy(BitConverter.GetBytes(byteMessage.LongLength),
-                            0,
-                            data,
-                            0,
-                            ByteConst.sizeBytes);
-
-                Array.Copy(byteMessage,
-                            0,
-                            data,
-                            ByteConst.sizeBytes,
-                            byteMessage.Length);
-
-                return await Task.FromResult(data);
-            }
-
-            Message mes = new Message()
-            {
-                MessageType = (int)PackUnpackMessages.Enums.MessageTypes.KeepConnection,
-                From = id,
-                To = 100,
-                Data = new byte[0]
-            };
-            byte[] message = mes.GetMessage();
-            data = new byte[PackUnpackMessages.Enums.ByteConst.sizeBytes + message.Length];
-
-            Array.Copy(BitConverter.GetBytes(message.LongLength),
-                        0,
-                        data,
-                        0,
-                        PackUnpackMessages.Enums.ByteConst.sizeBytes);
-
-            Array.Copy(message,
-                        0,
-                        data,
-                        PackUnpackMessages.Enums.ByteConst.sizeBytes,
-                        message.Length);
-
-            return await Task.FromResult(data);
-        }
-
-        private async Task<byte[]> GetHashMD5(byte[] source) //128 bits = 16bytes
-        {
-            byte[] data;
-            using (MD5 md5Hasher = MD5.Create())
-            {
-                data = md5Hasher.ComputeHash(source);
-            }
-            return await Task.FromResult(data);
         }
     }
 }
