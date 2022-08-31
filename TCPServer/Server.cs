@@ -120,6 +120,12 @@ namespace TCPServer
 
                     long size = BitConverter.ToInt64(buffer);
 
+                    logger.InfoReport("Получено сообщение размером " + size);
+                    for (int i = 0; i < buffer.Length; i++)
+                    {
+                        Console.Write(buffer[i] + " ");
+                    }
+
                     byte[] data;
 
                     byte[] buff;

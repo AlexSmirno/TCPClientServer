@@ -2,3 +2,11 @@
 21.08.2022 12:21:39: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Object reference not set to an instance of an object.
 21.08.2022 12:21:54: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: The process cannot access the file 'D:\Projects\В процессе\TCPClientServer\Logs\logs.txt' because it is being used by another process.
 21.08.2022 12:21:57: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Object reference not set to an instance of an object.
+Error:31.08.2022 10:29:54: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:31.08.2022 10:30:23: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:31.08.2022 10:33:03: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:31.08.2022 10:33:45: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:31.08.2022 13:34:21: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:31.08.2022 13:34:38: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Array dimensions exceeded supported range.
+Error:31.08.2022 13:34:55: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Array dimensions exceeded supported range.
+Error:31.08.2022 13:56:52: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.

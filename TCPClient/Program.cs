@@ -11,57 +11,47 @@ namespace TCPClient
             while (true)
             {
                 Console.ReadKey();
+
+                byte id;
+
+                while (!byte.TryParse(Console.ReadLine(), out id))
+                {
+                    Console.WriteLine("Попробуйте еще раз, блять!");
+                }
+
+                StartClient(id);
+            }
+        }
+
+        private static async void StartClient(byte id)
+        {
+            Client client = new Client();
+
+            try
+            {
+                client.SetServerConfiguration("192.168.1.65", 8080);
+
+                client.Id = id;
+
+                await client.ConnectToServer();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            Sender sender = client.GetSender();
+
+            while (true)
+            {
                 try
                 {
-                    int amount = 2;
+                    string responce = await sender.SendText(client.Id, "Привет");
 
-                    Client client1 = new Client(101);
-                    Client client2 = new Client(102);
+                    
+                    Console.WriteLine(responce);
 
-                    Task[] clients = new Task[2];
-                    clients[0] = new Task(() => client1.ClientStart());
-                    clients[1] = new Task(() => client2.ClientStart());
+                    Task.Delay(1000).Wait();
 
-                    Task task1 = new Task(() => client1.addMessage("Привет, Мир!", 102));
-                    task1.Start();
-
-                    Task task2 = new Task(() => client1.addMessage("Пока, Мир!", 101));
-                    task2.Start();
-
-                    for (int i = 0; i < amount; i++)
-                    {
-                        clients[i].Start();
-                    }
-
-                    Console.ReadKey();
-
-                    for (int i = 0; i < amount; i++)
-                    {
-                        clients[i].Dispose();
-                    }
-
-                    /*Task[] clients = new Task[amount];
-                    for (int i = 0; i < amount; i++)
-                    {
-                        byte a = (byte)(i + 101);
-
-                        Client client = new Client(a);
-                        clients[i] = new Task(() => client.ClientStart());
-
-                        new Task(() => client.addMessage("Привет мир!", a)).Start();
-                    }
-
-                    for (int i = 0; i < amount; i++)
-                    {
-                        clients[i].Start();
-                    }
-
-                    Console.ReadKey();
-
-                    for (int i = 0; i < amount; i++)
-                    {
-                        clients[i].Dispose();
-                    }*/
                 }
                 catch (Exception error)
                 {

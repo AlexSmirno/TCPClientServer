@@ -4,7 +4,8 @@
     {
         NoError = 0,
         NotFoundClient = 1,
-        WrongHash = 2,
-        SaveError = 3
+        NotAuthorizate = 2,
+        WrongHash = 3,
+        SaveError = 4,
     }
 }

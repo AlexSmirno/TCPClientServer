@@ -25,7 +25,7 @@ namespace TCPServer
         {
             Message newMessage = new Message(message);
 
-            AddUser(newMessage.From);
+            await AddUser(newMessage.From);
 
             await Checking(newMessage);
         }
@@ -61,7 +61,7 @@ namespace TCPServer
             MessageTypes messageType = (MessageTypes)message.MessageType;
 
             Logger.Logger logger = new Logger.Logger(this.GetType().FullName);
-            logger.Report("Route message with type = " + messageType);
+            logger.InfoReport("Route message with type = " + messageType);
 
             switch (messageType)
             {

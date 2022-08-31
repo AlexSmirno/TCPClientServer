@@ -50,3 +50,122 @@
 21.08.2022 12:21:56: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
 21.08.2022 12:21:57: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
 21.08.2022 12:21:57: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 10:28:42: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 10:29:36: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 10:30:07: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 2
+Info:31.08.2022 10:32:47: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 3
+Info:31.08.2022 10:33:09: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 4
+Info:31.08.2022 10:41:18: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 5
+Info:31.08.2022 10:41:34: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 6
+Info:31.08.2022 10:41:43: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 7
+Info:31.08.2022 12:21:30: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 12:21:38: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 12:36:28: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 12:36:36: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 12:36:48: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 12:38:11: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 2
+Info:31.08.2022 12:40:51: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 3
+Info:31.08.2022 13:24:22: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:24:27: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:25:04: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 2
+Info:31.08.2022 13:26:53: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 3
+Info:31.08.2022 13:29:16: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:29:20: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:29:51: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 2
+Info:31.08.2022 13:34:08: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:34:13: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:34:36: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 2
+Info:31.08.2022 13:34:55: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 3
+Info:31.08.2022 13:35:37: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 4
+Info:31.08.2022 13:36:19: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 5
+Info:31.08.2022 13:37:27: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:37:29: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:37:51: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:39:05: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:39:08: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:39:27: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:39:30: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:45:19: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:45:30: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:46:20: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:46:27: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:46:39: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:46:53: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:48:15: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:48:16: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:49:15: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:49:21: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:49:21: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 484352
+Info:31.08.2022 13:50:04: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:50:10: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:50:37: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 484352
+Info:31.08.2022 13:52:37: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:52:40: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:52:45: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 484352
+Info:31.08.2022 13:53:00: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:53:06: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:53:06: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 484352
+Info:31.08.2022 13:54:06: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:54:08: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:54:08: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 484352
+Info:31.08.2022 13:56:24: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:31.08.2022 13:56:33: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:31.08.2022 13:56:37: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:37: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:37: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:37: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:38: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:38: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:38: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:38: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:39: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:39: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:39: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:39: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:40: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:40: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:40: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:40: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:41: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:41: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:41: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:41: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:42: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:42: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:42: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:42: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:43: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:43: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:43: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:43: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:44: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:44: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:44: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:44: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:45: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:45: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:45: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:45: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:46: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:46: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:46: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:46: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:47: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:47: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:48: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:48: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:48: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:48: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:49: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:49: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:49: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:49: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:50: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:50: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:50: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:50: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:51: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 6
+Info:31.08.2022 13:56:51: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:31.08.2022 13:56:51: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 12
+Info:31.08.2022 13:56:51: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:31.08.2022 13:56:52: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Получено сообщение размером 0

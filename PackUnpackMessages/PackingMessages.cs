@@ -58,7 +58,7 @@ namespace PackUnpackMessages
             byte[] data = new byte[ByteConst.sizeBytes + byteMessage.Length];
 
 
-            Array.Copy(BitConverter.GetBytes(byteMessage.LongLength),
+            Array.Copy(BitConverter.GetBytes((Int64)byteMessage.LongLength),
                         0,
                         data,
                         0,
@@ -71,7 +71,7 @@ namespace PackUnpackMessages
                         byteMessage.Length);
 
 
-            return data;
+            return await Task.FromResult(data);
         }
 
         public async Task<byte[]> packKeepConnectionMessage(byte reciver)
