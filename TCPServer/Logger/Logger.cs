@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 namespace TCPServer.Logger
 {
@@ -46,9 +47,10 @@ namespace TCPServer.Logger
         
         public void ErrorReport(string report,
                            [System.Runtime.CompilerServices.CallerMemberName] string memberName = "",
-                           [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = "")
+                           [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = "",
+                           [System.Runtime.CompilerServices.CallerLineNumber] int sourceLineNumber = 0)
         {
-            string convertLog = "Error:" + DateTime.Now + ": " + sourceFilePath + ": " + memberName + " ::: " + report;
+            string convertLog = "Error: " + DateTime.Now + ": " + sourceFilePath + "\\ Line:" + sourceLineNumber + ": " + memberName + " ::: " + report;
             Console.WriteLine(convertLog);
             WriteErrorReport(convertLog);
         }

@@ -10,3 +10,42 @@ Error:31.08.2022 13:34:21: D:\Projects\В процессе\TCPClientServer\TCPSe
 Error:31.08.2022 13:34:38: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Array dimensions exceeded supported range.
 Error:31.08.2022 13:34:55: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Array dimensions exceeded supported range.
 Error:31.08.2022 13:56:52: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:02.09.2022 15:22:36: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:02.09.2022 15:24:29: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:02.09.2022 15:26:16: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:02.09.2022 15:28:19: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:02.09.2022 15:29:03: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:02.09.2022 15:29:58: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:02.09.2022 15:31:56: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Queue empty.
+Error:02.09.2022 15:32:48: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Queue empty.
+Error:02.09.2022 15:32:59: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Index was outside the bounds of the array.
+Error:02.09.2022 15:33:48: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Queue empty.
+Error:02.09.2022 15:37:04: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Queue empty.
+Error:02.09.2022 15:41:46: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Queue empty.
+Error:02.09.2022 15:43:45: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Queue empty.
+Error: 02.09.2022 15:47:35: System.Linq.Enumerable+<TakeRangeFromEndIterator>d__245`1[System.String]\ Line:173: StartNewSocket ::: Queue empty.
+Error: 02.09.2022 15:49:01: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:173: StartNewSocket ::: Queue empty.
+Error: 02.09.2022 16:04:15: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:174: StartNewSocket ::: Queue empty.
+Error: 02.09.2022 16:04:49: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:174: StartNewSocket ::: Index was outside the bounds of the array.
+Error: 02.09.2022 16:07:41: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:176: StartNewSocket ::: Queue empty.
+Error: 02.09.2022 16:10:36: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:176: StartNewSocket ::: Queue empty.
+Error: 02.09.2022 16:17:58: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:176: StartNewSocket ::: Queue empty.
+Error: 02.09.2022 17:36:21: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Index was outside the bounds of the array.
+Error: 02.09.2022 17:36:56: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Index was outside the bounds of the array.
+Error: 02.09.2022 21:35:33: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Object reference not set to an instance of an object.
+Error: 02.09.2022 21:37:28: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs\ Line:50: Checking ::: Wrong reciever from client 101
+Error: 02.09.2022 21:37:28: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Object reference not set to an instance of an object.
+Error: 02.09.2022 21:38:13: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: The process cannot access the file 'D:\Projects\В процессе\TCPClientServer\Logs\logs.txt' because it is being used by another process.
+Error: 02.09.2022 21:49:12: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Index was outside the bounds of the array.
+Error: 02.09.2022 21:49:13: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Index was outside the bounds of the array.
+Error: 02.09.2022 22:00:27: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: The process cannot access the file 'D:\Projects\В процессе\TCPClientServer\Logs\logs.txt' because it is being used by another process.
+Error: 02.09.2022 22:02:57: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Index was outside the bounds of the array.
+Error: 02.09.2022 22:02:58: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Index was outside the bounds of the array.
+Error: 02.09.2022 22:05:17: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: The process cannot access the file 'D:\Projects\В процессе\TCPClientServer\Logs\logs.txt' because it is being used by another process.
+Error: 02.09.2022 22:05:38: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Index was outside the bounds of the array.
+Error: 02.09.2022 22:06:14: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Index was outside the bounds of the array.
+Error: 02.09.2022 22:06:15: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Index was outside the bounds of the array.
+Error: 02.09.2022 22:10:30: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: The process cannot access the file 'D:\Projects\В процессе\TCPClientServer\Logs\logs.txt' because it is being used by another process.
+Error: 02.09.2022 22:10:30: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Index was outside the bounds of the array.
+Error: 02.09.2022 22:18:54: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Index was outside the bounds of the array.
+Error: 02.09.2022 22:18:54: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs\ Line:170: StartNewSocket ::: Index was outside the bounds of the array.

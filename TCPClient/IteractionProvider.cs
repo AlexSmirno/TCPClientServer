@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading.Tasks;
 using PackUnpackMessages;
 using PackUnpackMessages.Enums;
-
 
 namespace TCPClient
 {
@@ -62,21 +59,43 @@ namespace TCPClient
             messagesQueue.Enqueue(await packingMessages.packUsualMessage(message));
         }
 
+        public async Task<Message> GetResponce()
+        {
+            while (!(responce != null && responce.Data.Length > 0))
+            {
+                Task.Delay(iteractionDelay / 10).Wait();
+            }
+
+            Message resp = responce;
+            responce = null;
+            return resp;
+        }
+
+
         private async void MainLoop()
         {
-            while (true)
+            try
             {
-                if (messagesQueue.Count > 0)
+                while (true)
                 {
-                    responce = await IteractionWithServer(messagesQueue.Dequeue());
-                }
-                else
-                {
-                    PackingMessages packingMessages = new PackingMessages();
-                    await IteractionWithServer(await packingMessages.packUsualMessage(await GetPollingMessage()));
-                }
+                    if (messagesQueue.Count > 0)
+                    {
+                        responce = await IteractionWithServer(messagesQueue.Dequeue());
+                    }
+                    else
+                    {
+                        PackingMessages packingMessages = new PackingMessages();
+                        responce = await IteractionWithServer(await packingMessages.packUsualMessage(await GetPollingMessage()));
+                    }
+
+                    //Console.WriteLine(responce.Data.Length);
 
                 Task.Delay(iteractionDelay).Wait();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something goes wrong =)" + ex.Message);
             }
         }
 
@@ -84,10 +103,6 @@ namespace TCPClient
         {
             try
             {
-                for (int i = 0; i < message.Length; i++)
-                {
-                    Console.Write(message[i] + " ");
-                }
                 socket.Send(message);
 
                 byte[] responceBytes = new byte[ByteConst.sizeBytes];
@@ -127,6 +142,7 @@ namespace TCPClient
             {
                 socket.Shutdown(SocketShutdown.Both);
                 socket.Close();
+                socket.Dispose();
                 Console.WriteLine(ex.Message);
             }
 
@@ -145,20 +161,5 @@ namespace TCPClient
 
             return await Task.FromResult(message);
         }
-
-        public async Task<Message> GetResponce()
-        {
-            int responceWaitTime = 0;
-            while (responce == null && responceWaitTime < maxTimeToGetResponce)
-            {
-                Task.Delay(iteractionDelay);
-                responceWaitTime += iteractionDelay;
-            }
-
-            Message resp = responce;
-            responce = null;
-            return resp;
-        }
-
     }
 }

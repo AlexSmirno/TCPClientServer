@@ -18,7 +18,7 @@ namespace TCPClient
             encoding = Encoding.GetEncoding(1251);
         }
 
-        public async System.Threading.Tasks.Task<string> SendText(byte route, string text)
+        public async System.Threading.Tasks.Task SendText(byte route, string text)
         {
             Message message = new Message()
             {
@@ -29,9 +29,14 @@ namespace TCPClient
             };
 
             iteractionProvider.AddMessageToQueue(message);
+        }
 
+
+        public async System.Threading.Tasks.Task<string> GetMessage()
+        {
             Message responce = await iteractionProvider.GetResponce();
-            if (responce != null)
+
+            if (responce != null && responce.Data.Length > 0)
             {
                 return encoding.GetString(responce.Data);
             }

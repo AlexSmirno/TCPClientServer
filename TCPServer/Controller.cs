@@ -14,9 +14,10 @@ namespace TCPServer
         private PackingMessages packMessage;
         private const int serverId = 100;
         private int Thread;
-
+        private Logger.Logger logger;
         public Controller(int thread)
         {
+            logger = new Logger.Logger(this.GetType().FullName);
             packMessage = new PackingMessages();
             Thread = thread;
         }
@@ -24,6 +25,7 @@ namespace TCPServer
         public async Task ProcessMessage(byte[] message)
         {
             Message newMessage = new Message(message);
+            logger.InfoReport("Сообщение от " + newMessage.From);
 
             await AddUser(newMessage.From);
 
@@ -45,6 +47,7 @@ namespace TCPServer
                 thread.User.Id == message.To).Count() == 0)
                 {
                     error = Errors.NotFoundClient;
+                    logger.ErrorReport("Wrong reciever from client " + message.From);
                 }
 
                 if (error > 0)
@@ -60,7 +63,6 @@ namespace TCPServer
         {
             MessageTypes messageType = (MessageTypes)message.MessageType;
 
-            Logger.Logger logger = new Logger.Logger(this.GetType().FullName);
             logger.InfoReport("Route message with type = " + messageType);
 
             switch (messageType)
@@ -160,7 +162,12 @@ namespace TCPServer
 
         private async Task AddUser(int id)
         {
-            ServerContext.ActiveThreads.Find(thread => thread.Id == Thread).User = new Data.Models.User() { Id = id, Username = id.ToString() };
+            if (ServerContext.ActiveThreads.Where(thread => thread.User.Id == id).Any() == false)
+            {
+                ServerContext.ActiveThreads.Find(thread => thread.Id == Thread).User.Id = id;
+                ServerContext.ActiveThreads.Find(thread => thread.Id == Thread).User.Username = id + "";
+                logger.InfoReport("Сокет #" + Thread + "Новый пользователь с id = " + id);
+            }
         }
 
         private async Task AddMessageToQueue(byte[] message, int Id)

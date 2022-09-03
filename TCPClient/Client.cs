@@ -12,10 +12,11 @@ namespace TCPClient
         private IteractionProvider iteractionProvider;
 
         public bool status { get; private set; } //It is true, when authorization correct
-        public byte Id { get; set; }
+        public byte Id { get; private set; }
 
-        public Client()
+        public Client(byte id)
         {
+            Id = id;
             status = false;
         }
 

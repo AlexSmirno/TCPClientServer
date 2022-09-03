@@ -6,32 +6,42 @@ namespace TCPClient
 {
     class Program
     {
+
+        static byte SecondClient;
+        static Sender sender;
+
         static void Main(string[] args)
         {
             while (true)
             {
-                Console.ReadKey();
-
-                byte id;
-
-                while (!byte.TryParse(Console.ReadLine(), out id))
+                try
                 {
-                    Console.WriteLine("Попробуйте еще раз, блять!");
-                }
+                    byte id;
 
-                StartClient(id);
+                    while (!byte.TryParse(Console.ReadLine(), out id))
+                    {
+                        Console.WriteLine("Попробуй еще раз, блять!");
+                    }
+
+                    SecondClient = byte.Parse(Console.ReadLine());
+
+                    StartClient(id);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("End of session");
+                }
             }
         }
 
         private static async void StartClient(byte id)
         {
-            Client client = new Client();
+            Client client = new Client(id);
 
             try
             {
-                client.SetServerConfiguration("192.168.1.65", 8080);
+                client.SetServerConfiguration("192.168.1.64", 8080);
 
-                client.Id = id;
 
                 await client.ConnectToServer();
             }
@@ -39,18 +49,16 @@ namespace TCPClient
             {
                 Console.WriteLine(ex.ToString());
             }
-            Sender sender = client.GetSender();
+
+            sender = client.GetSender();
+
+            new Task(MessageLoop).Start();
 
             while (true)
             {
                 try
                 {
-                    string responce = await sender.SendText(client.Id, "Привет");
-
-                    
-                    Console.WriteLine(responce);
-
-                    Task.Delay(1000).Wait();
+                    await sender.SendText(SecondClient, Console.ReadLine());
 
                 }
                 catch (Exception error)
@@ -61,6 +69,19 @@ namespace TCPClient
             }
         }
 
+        private static async void MessageLoop()
+        {
+            while (true)
+            {
+                string responce = await sender.GetMessage();
 
+                if (responce != null)
+                {
+                    Console.WriteLine("Server responce: " + responce);
+                }
+
+                Task.Delay(400).Wait();
+            }
+        }
     }
 }

@@ -105,7 +105,7 @@ namespace TCPServer
 
         private async Task StartNewSocket(int threadNumber, Socket handler)
         {
-            ServerContext.ActiveThreads.Add(new Data.ServerModels.Thread() { Id = threadNumber });
+            ServerContext.ActiveThreads.Add(new Data.ServerModels.Thread() { Id = threadNumber, User = new Data.Models.User()});
             logger.InfoReport("Start new Socket with id = " + threadNumber);
 
             try
@@ -119,12 +119,6 @@ namespace TCPServer
                     int offset = ByteConst.sizeBytes;
 
                     long size = BitConverter.ToInt64(buffer);
-
-                    logger.InfoReport("Получено сообщение размером " + size);
-                    for (int i = 0; i < buffer.Length; i++)
-                    {
-                        Console.Write(buffer[i] + " ");
-                    }
 
                     byte[] data;
 
@@ -148,11 +142,8 @@ namespace TCPServer
 
                         offset += received;
                     }
-                    Console.Write("Сокет #" + threadNumber + " получает сообщение от клиента");
-                    /*if (mesType == (int)MessageTypes.SendText)
-                    {
-                        Console.Write("Сообщение: " + encoding.GetString(data, ByteConst.hashBytes, data.Length - ByteConst.hashBytes));
-                    }*/
+
+                    Console.Write("Сокет #" + threadNumber + " получает сообщение от клиента" + data[0]);
 
                     Console.WriteLine();
 
