@@ -2843,3 +2843,50 @@ Info:02.09.2022 22:18:53: D:\Projects\В процессе\TCPClientServer\TCPSer
 Info:02.09.2022 22:18:53: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
 Info:02.09.2022 22:18:54: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 102
 Info:02.09.2022 22:18:54: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:23: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: SetServer ::: Server have been started
+Info:03.09.2022 11:04:33: D:\Projects\В процессе\TCPClientServer\TCPServer\Server.cs: StartNewSocket ::: Start new Socket with id = 1
+Info:03.09.2022 11:04:34: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:34: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: AddUser ::: Сокет #1Новый пользователь с id = 101
+Info:03.09.2022 11:04:34: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:34: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:34: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:35: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:35: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:35: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:35: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:36: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:36: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:36: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:36: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:37: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:37: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:03.09.2022 11:04:37: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:37: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:38: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:38: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:38: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:38: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:39: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:39: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:03.09.2022 11:04:39: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:39: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:40: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:40: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = SendText
+Info:03.09.2022 11:04:40: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:40: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:41: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:41: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:41: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:41: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:42: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:42: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:42: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:42: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:43: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:43: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:43: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:43: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:44: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:44: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
+Info:03.09.2022 11:04:44: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: ProcessMessage ::: Сообщение от 101
+Info:03.09.2022 11:04:44: D:\Projects\В процессе\TCPClientServer\TCPServer\Controller.cs: Routing ::: Route message with type = KeepConnection
