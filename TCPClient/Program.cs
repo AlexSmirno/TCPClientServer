@@ -73,7 +73,7 @@ namespace TCPClient
         {
             while (true)
             {
-                string responce = await sender.GetMessage();
+                string responce = await sender.GetMessageFromServer();
 
                 if (responce != null)
                 {

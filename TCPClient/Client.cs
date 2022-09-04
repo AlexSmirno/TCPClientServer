@@ -48,5 +48,10 @@ namespace TCPClient
             return new Sender(iteractionProvider, this.Id);
         }
 
+        public Reciever GetReciever()
+        {
+            return new Reciever(iteractionProvider);
+        }
+
     }
 }

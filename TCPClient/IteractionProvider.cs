@@ -10,9 +10,8 @@ namespace TCPClient
 {
     public class IteractionProvider
     {
-        private const int iteractionDelay = 500;
+        private const int iteractionDelay = 300;
         private const int serverId = 100;
-        private const int maxTimeToGetResponce = 10000;
 
         private IPEndPoint endPoint;
         private Socket socket;
@@ -21,7 +20,7 @@ namespace TCPClient
         private int serverHost;
         private byte clientId;
         private Queue<byte[]> messagesQueue = new Queue<byte[]>();
-        private Message responce;
+        private Queue<Message> serverMessages = new Queue<Message>();
 
         public IteractionProvider(string serverIP, int serverHost, byte clientId)
         {
@@ -61,13 +60,12 @@ namespace TCPClient
 
         public async Task<Message> GetResponce()
         {
-            while (!(responce != null && responce.Data.Length > 0))
+            while (serverMessages.Count == 0)
             {
-                Task.Delay(iteractionDelay / 10).Wait();
+                Task.Delay(iteractionDelay / 5).Wait();
             }
 
-            Message resp = responce;
-            responce = null;
+            Message resp = serverMessages.Dequeue();
             return resp;
         }
 
@@ -78,28 +76,29 @@ namespace TCPClient
             {
                 while (true)
                 {
+                    Message newMessage;
+
                     if (messagesQueue.Count > 0)
                     {
-                        responce = await IteractionWithServer(messagesQueue.Dequeue());
+                        newMessage = new Message(await IteractionWithServer(messagesQueue.Dequeue()));
                     }
                     else
                     {
-                        PackingMessages packingMessages = new PackingMessages();
-                        responce = await IteractionWithServer(await packingMessages.packUsualMessage(await GetPollingMessage()));
+                        newMessage = new Message(await IteractionWithServer(await GetPollingMessage()));
                     }
 
-                    //Console.WriteLine(responce.Data.Length);
+                    serverMessages.Enqueue(newMessage);
 
-                Task.Delay(iteractionDelay).Wait();
+                    Task.Delay(iteractionDelay).Wait();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Something goes wrong =)" + ex.Message);
+                Console.WriteLine("Something goes wrong =|" + ex.Message);
             }
         }
 
-        private async Task<Message> IteractionWithServer(byte[] message)
+        private async Task<byte[]> IteractionWithServer(byte[] message)
         {
             try
             {
@@ -131,12 +130,12 @@ namespace TCPClient
                                 0,
                                 data,
                                 0,
-                                buff.Length); //Копирование длины сообщения в буффер
+                                buff.Length);
 
                     offset += received;
                 }
 
-                return await Task.FromResult(new Message(data));
+                return await Task.FromResult(data);
             }
             catch (Exception ex)
             {
@@ -144,12 +143,11 @@ namespace TCPClient
                 socket.Close();
                 socket.Dispose();
                 Console.WriteLine(ex.Message);
+                return null;
             }
-
-            return null;
         }
 
-        private async Task<Message> GetPollingMessage()
+        private async Task<byte[]> GetPollingMessage()
         {
             Message message = new Message()
             {
@@ -159,7 +157,8 @@ namespace TCPClient
                 Data = new byte[0]
             };
 
-            return await Task.FromResult(message);
+            PackingMessages packingMessages = new PackingMessages();
+            return await Task.FromResult(await packingMessages.packUsualMessage(message));
         }
     }
 }

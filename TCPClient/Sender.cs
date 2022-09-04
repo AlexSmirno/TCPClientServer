@@ -6,16 +6,15 @@ namespace TCPClient
     public class Sender
     {
         private IteractionProvider iteractionProvider;
+        private MyTextEncoder encoder;
+
         private byte clientId;
-        private Encoding encoding;
 
         public Sender(IteractionProvider iteractionProvider, byte clientId)
         {
             this.iteractionProvider = iteractionProvider;
             this.clientId = clientId;
-
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            encoding = Encoding.GetEncoding(1251);
+            encoder = new MyTextEncoder();
         }
 
         public async System.Threading.Tasks.Task SendText(byte route, string text)
@@ -25,32 +24,16 @@ namespace TCPClient
                 From = clientId,
                 To = route,
                 MessageType = (int)PackUnpackMessages.Enums.MessageTypes.SendText,
-                Data = encoding.GetBytes(text)
+                Data = encoder.TextToBytes(text)
             };
 
             iteractionProvider.AddMessageToQueue(message);
         }
 
-
-        public async System.Threading.Tasks.Task<string> GetMessage()
-        {
-            Message responce = await iteractionProvider.GetResponce();
-
-            if (responce != null && responce.Data.Length > 0)
-            {
-                return encoding.GetString(responce.Data);
-            }
-            return null;
-        }
-
-        public void SendFile(string path)
+        public async System.Threading.Tasks.Task SendFile(string path)
         {
 
         }
 
-        public void GetFile(string filename)
-        {
-
-        }
     }
 }

@@ -9,7 +9,6 @@
         GetFiles = 4,
         GetChatHistory = 5,
         Error = 6,
-        KeepConnection = 7,
-        HelloMessage = 8
+        KeepConnection = 7
     }
 }
